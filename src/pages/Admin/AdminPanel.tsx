@@ -1,60 +1,60 @@
 // import React, { useState } from "react";
 import React from "react";
 
-interface Booking {
-  name: string;
-  phone: string;
-  service: string;
-  date: string;
-  time: string;
-  notes: string;
-}
+// interface Booking {
+//   name: string;
+//   phone: string;
+//   service: string;
+//   date: string;
+//   time: string;
+//   notes: string;
+// }
 
-const PALETTE = [
-  { bg: "#FBEAF0", color: "#993556" },
-  { bg: "#E1F5EE", color: "#085041" },
-  { bg: "#E6F1FB", color: "#0C447C" },
-  { bg: "#FAEEDA", color: "#633806" },
-  { bg: "#EAF3DE", color: "#27500A" },
-  { bg: "#EEEDFE", color: "#3C3489" },
-];
+// const PALETTE = [
+//   { bg: "#FBEAF0", color: "#993556" },
+//   { bg: "#E1F5EE", color: "#085041" },
+//   { bg: "#E6F1FB", color: "#0C447C" },
+//   { bg: "#FAEEDA", color: "#633806" },
+//   { bg: "#EAF3DE", color: "#27500A" },
+//   { bg: "#EEEDFE", color: "#3C3489" },
+// ];
 
-function getInitials(name: string): string {
-  const parts = name.trim().split(" ");
-  return (parts[0][0] + (parts[1] ? parts[1][0] : "")).toUpperCase();
-}
+// function getInitials(name: string): string {
+//   const parts = name.trim().split(" ");
+//   return (parts[0][0] + (parts[1] ? parts[1][0] : "")).toUpperCase();
+// }
 
-function getPalette(name: string) {
-  let h = 0;
-  for (let i = 0; i < name.length; i++) h += name.charCodeAt(i);
-  return PALETTE[h % PALETTE.length];
-}
+// function getPalette(name: string) {
+//   let h = 0;
+//   for (let i = 0; i < name.length; i++) h += name.charCodeAt(i);
+//   return PALETTE[h % PALETTE.length];
+// }
 
-function formatDate(d: string): string {
-  const dt = new Date(d);
-  if (isNaN(dt.getTime())) return d || "—";
-  return dt.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-}
+// function formatDate(d: string): string {
+//   const dt = new Date(d);
+//   if (isNaN(dt.getTime())) return d || "—";
+//   return dt.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+// }
 
-function isUpcoming(d: string): boolean {
-  return new Date(d) >= new Date();
-}
+// function isUpcoming(d: string): boolean {
+//   return new Date(d) >= new Date();
+// }
 
-const CalendarIcon = () => (
-  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888780" strokeWidth="2" strokeLinecap="round">
-    <rect x="3" y="4" width="18" height="18" rx="2" />
-    <line x1="3" y1="10" x2="21" y2="10" />
-    <line x1="8" y1="2" x2="8" y2="6" />
-    <line x1="16" y1="2" x2="16" y2="6" />
-  </svg>
-);
+// const CalendarIcon = () => (
+//   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888780" strokeWidth="2" strokeLinecap="round">
+//     <rect x="3" y="4" width="18" height="18" rx="2" />
+//     <line x1="3" y1="10" x2="21" y2="10" />
+//     <line x1="8" y1="2" x2="8" y2="6" />
+//     <line x1="16" y1="2" x2="16" y2="6" />
+//   </svg>
+// );
 
-const ClockIcon = () => (
-  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888780" strokeWidth="2" strokeLinecap="round">
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
+// const ClockIcon = () => (
+//   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888780" strokeWidth="2" strokeLinecap="round">
+//     <circle cx="12" cy="12" r="10" />
+//     <polyline points="12 6 12 12 16 14" />
+//   </svg>
+// );
 
 // const RefreshIcon = () => (
 //   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -63,50 +63,50 @@ const ClockIcon = () => (
 //   </svg>
 // );
 
-const BookingCard = ({ item }: { item: Booking }) => {
-  const up = isUpcoming(item.date);
-  const pal = getPalette(item.name || "");
+// const BookingCard = ({ item }: { item: Booking }) => {
+//   const up = isUpcoming(item.date);
+//   const pal = getPalette(item.name || "");
 
-  return (
-    <div style={styles.card}>
-      <div style={{ ...styles.cardAccent, background: up ? "#F4C0D1" : "#D3D1C7" }} />
-      <div style={styles.cardBody}>
-        <div style={styles.cardHead}>
-          <span style={styles.svcPill}>{item.service || "Service"}</span>          
-        </div>
+//   return (
+//     <div style={styles.card}>
+//       <div style={{ ...styles.cardAccent, background: up ? "#F4C0D1" : "#D3D1C7" }} />
+//       <div style={styles.cardBody}>
+//         <div style={styles.cardHead}>
+//           <span style={styles.svcPill}>{item.service || "Service"}</span>          
+//         </div>
 
-        <div style={styles.avatarRow}>
-          <div style={{ ...styles.avatar, background: pal.bg, color: pal.color }}>
-            {getInitials(item.name || "?")}
-          </div>
-          <div>
-            <div style={styles.name}>{item.name || "—"}</div>
-            <div style={styles.phone}>{item.phone || "—"}</div>
-          </div>
-        </div>
+//         <div style={styles.avatarRow}>
+//           <div style={{ ...styles.avatar, background: pal.bg, color: pal.color }}>
+//             {getInitials(item.name || "?")}
+//           </div>
+//           <div>
+//             <div style={styles.name}>{item.name || "—"}</div>
+//             <div style={styles.phone}>{item.phone || "—"}</div>
+//           </div>
+//         </div>
 
-        <div style={styles.meta}>
-          <div style={styles.metaTag}>
-            <CalendarIcon />
-            {formatDate(item.date)}
-          </div>
-          {item.time && (
-            <div style={styles.metaTag}>
-              <ClockIcon />
-              {item.time}
-            </div>
-          )}
-        </div>
+//         <div style={styles.meta}>
+//           <div style={styles.metaTag}>
+//             <CalendarIcon />
+//             {formatDate(item.date)}
+//           </div>
+//           {item.time && (
+//             <div style={styles.metaTag}>
+//               <ClockIcon />
+//               {item.time}
+//             </div>
+//           )}
+//         </div>
 
-        {item.notes ? (
-          <div style={styles.noteBox}>{item.notes}</div>
-        ) : (
-          <div style={styles.noNote}>No notes added</div>
-        )}
-      </div>
-    </div>
-  );
-};
+//         {item.notes ? (
+//           <div style={styles.noteBox}>{item.notes}</div>
+//         ) : (
+//           <div style={styles.noNote}>No notes added</div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
 
 const AdminPanel = () => {
   // const [data, setData] = useState<Booking[]>([]);
