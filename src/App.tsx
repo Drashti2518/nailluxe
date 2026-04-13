@@ -36,12 +36,7 @@ const App = () => {
 
   // 🔐 Admin access
   const goToAdmin = () => {
-    const pass = prompt("Enter Admin Password");
-    if (pass === "1234") {
-      setPage("admin");
-    } else {
-      alert("Wrong Password");
-    }
+    window.location.href = "/admin";
   };
 
   useEffect(() => {
