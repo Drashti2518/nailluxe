@@ -11,6 +11,8 @@ body {
   background: #f9f0eb;
   font-family: 'DM Sans', sans-serif;
   color: #1c0a0a;
+  margin: 0;
+  padding: 0;
 }
 
 /* ───────── HERO ───────── */
