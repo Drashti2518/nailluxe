@@ -45,8 +45,17 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (window.location.pathname === "/admin") {
-      setPage("admin-login");
+    const path = window.location.pathname;
+  
+    if (path === "/admin") {
+      const admin = localStorage.getItem("isAdmin");
+  
+      if (admin === "true") {
+        setIsAdmin(true);
+        setPage("admin");
+      } else {
+        setPage("admin-login");
+      }
     }
   }, []);
 

@@ -13,9 +13,10 @@ const AdminLogin: React.FC<Props> = ({ onLogin }) => {
 
   const handleLogin = () => {
     if (password === "Nail@Admin2026") {
-      setIsSuccess(true);
-      setError("");
-      setTimeout(() => onLogin(), 900);
+      localStorage.setItem("isAdmin", "true"); // ✅ ADD
+  setIsSuccess(true);
+  setError("");
+  setTimeout(() => onLogin(), 900);
     } else {
       setError("Wrong password. Please try again.");
       setIsShaking(true);
